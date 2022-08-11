@@ -34,7 +34,7 @@ const mostrarLista = (pos) =>{
     }
 }
 
-const resaltarIntegrante = (arrayCoincidencias , valorIngresado ,pos)=>{
+const resaltarIntegrante = (nombreCoinci , valorIngresado ,pos)=>{
     let anterior = null;
     let actNode = dt[pos];
     for (let i = 0; i < 8; i++) {
@@ -43,22 +43,20 @@ const resaltarIntegrante = (arrayCoincidencias , valorIngresado ,pos)=>{
             console.log('entre en condicion if!==0')
             console.log(`Anterior es: ${anterior}`);
             if((anterior == 'Primer nombre' || anterior == 'Segundo nombre' || (anterior === 'Primer apellido' || anterior == 'Segundo apellido') && actNode.innerHTML !== null)){
-                arrayCoincidencias.forEach(ele => {
-                    if (actNode.innerHTML === ele){
-                        console.log(`Entre en condicion en: ${actNode.innerHTML}`)
-                        actNode.style.color = `${valorIngresado}`;
-                    }
-                });
+                if (actNode.innerHTML === nombreCoinci){
+                    console.log(`Entre en condicion en: ${actNode.innerHTML}`)
+                    actNode.style.color = `${valorIngresado}`;
+                }
             }
         }
         actNode = actNode.nextElementSibling;
     }
 }
 
-function resaltarCoincidencias(arrayCoincidencias, valorIngresado){
-    resaltarIntegrante(arrayCoincidencias , valorIngresado, 0)
-    resaltarIntegrante(arrayCoincidencias , valorIngresado, 4)
-    resaltarIntegrante(arrayCoincidencias , valorIngresado, 8)
+function resaltarCoincidencias(nombreCoinci, valorIngresado){
+    resaltarIntegrante(nombreCoinci , valorIngresado, 0)
+    resaltarIntegrante(nombreCoinci , valorIngresado, 4)
+    resaltarIntegrante(nombreCoinci , valorIngresado, 8)
 }
 
 
@@ -90,11 +88,15 @@ if (coincidencias !== null ){
     let auxVar = '';
     coincidencias.forEach(coinci => {
         console.log(`Hubo coincidencias\nCoincidencia fue en: ${coinci}`);
+        setTimeout(()=>{
+            auxVar = prompt(`Hubo coincidencias en ${coinci}, escriba un color a continuacion para resaltarlas:`)
+            console.log(`El valor de auxVar es: ${auxVar}`);
+            resaltarCoincidencias(coinci, auxVar);
+        }
+        ,200)
         // auxVar = prompt(`Hubo coincidencias en ${coinci}, escriba un color a continuacion para resaltarlas:`);
     });
-    auxVar = prompt(`Hubo coincidencias en ${coinci}, escriba un color a continuacion para resaltarlas:`)
-    console.log(`El valor de auxVar es: ${auxVar}`);
-    resaltarCoincidencias(coincidencias, auxVar);
+    
 }
 
 
