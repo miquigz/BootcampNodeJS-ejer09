@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@0;1&display=swap');
+
+body {
+  background-size: cover;
+  background-image: url(../images/background-ejercicio09.jpg);
+  margin-left: 400px;  
+  font-family: 'Source Sans Pro', sans-serif;
+  background-attachment: fixed; 
+
+}
+
+h1 {  
+  font-style: italic;
+  font-size: 50px;
+  letter-spacing: 5px;
+  background-color: rgba(127, 255, 212, 0.534);
+  width: fit-content;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+h2 {
+  font-size: 20px;
+  text-decoration: underline 1.2px;
+  background-color: rgba(127, 255, 212, 0.534);
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 30px;
+  
+}
+
+dt::after {
+  content: ": ";
+}
+
+dd,
+dt {
+  line-height: 1.5;
+  
+}
+
+dt {
+  font-weight: bold;
+  color: rgba(67, 119, 134, 0.863);
+}
+
+dd {
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}

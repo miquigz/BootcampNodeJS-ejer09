@@ -1,11 +1,7 @@
-const body = document.querySelector('body');
-body.style.backgroundColor = 'grey'//quitar luego
-
 const titulo = document.querySelector('title');
 console.log(titulo.innerHTML);
 
 let dt = document.querySelectorAll('dt');
-console.log(dt)
 //0 Primera lista(1er integrante), // [4] Segunda lista // [8] Tercera Lista 
 let arrayName = [];
 let arraySurname = [];
@@ -64,10 +60,10 @@ function buscarCoincidencias(arrayBuscar){
     let arrayCoincidencias = [];
     for (let j = 0; j < arrayBuscar.length; j++) {
         for (let i = j+1; i < arrayBuscar.length; i++) {
-            console.log(`BuscarJ es: ${arrayBuscar[j]}, \n BuscarI es: ${arrayBuscar[i]}`)
+            // console.log(`BuscarJ es: ${arrayBuscar[j]}, \n BuscarI es: ${arrayBuscar[i]}`)
             if (arrayBuscar[j] === arrayBuscar[i]){
                 arrayCoincidencias.push(arrayBuscar[j]);//Insertamos nombre repetido.
-                console.log(`Entre condicion con: ${arrayBuscar[j]}`)
+                // console.log(`Entre condicion con: ${arrayBuscar[j]}`)
             }
         }
     }    
@@ -89,24 +85,16 @@ function avisarCoincidencias(array, tipo){
         console.log(`NO HUBO COINCIDENCIAS DE ${tipo}`)
 }
 
-
 console.log(`----- \nIntegrante 1: "${mostrarIntegrante(0)}"\nIntegrante 2: "${mostrarIntegrante(4)}"\nIntegrante 3: "${mostrarIntegrante(8)}"\n----- `)
 
 let coincidenciasNombres = buscarCoincidencias(arrayName);
 
-console.log('Las coincidencias son:......', coincidenciasNombres);
-
 avisarCoincidencias(coincidenciasNombres, 'NOMBRES');
 
-//----DESCOMENTAR-------
-//----DESCOMENTAR-------
 setTimeout(()=>{
     valor = window.confirm('Desea buscar coincidencias en apellidos?');
     if (valor){
         let coincidenciasApellidos = buscarCoincidencias(arraySurname);
-        avisarCoincidencias(coincidenciasApellidos, 'apellidos');
+        avisarCoincidencias(coincidenciasApellidos, 'APELLIDOS');
     }
 }, 300)
-
-
-
